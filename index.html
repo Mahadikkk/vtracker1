@@ -25,6 +25,31 @@
 <div id="recordsList"></div>
 
 <script type="module" src="app.js"></script>
+<!-- Firebase SDK (script tag method) -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+
+<script>
+  // paste your firebaseConfig object here (from Firebase console)
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "vtracker1-e0278.firebaseapp.com",
+    databaseURL: "https://vtracker1-e0278-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "vtracker1-e0278",
+    storageBucket: "vtracker1-e0278.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize (namespaced API)
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+  // Expose db for app.js to use (if your app.js expects a global `db`):
+  window.db = db;
+</script>
+
+<!-- your script (no type="module") -->
+<script src="app.js"></script>
 
 </body>
 </html>
