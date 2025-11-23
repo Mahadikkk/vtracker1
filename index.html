@@ -1,42 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Fake Vehicle Data</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 400px;
+        }
+        th, td {
+            border: 1px solid #222;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #eee;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h2>Vehicle Dashboard</h2>
+    <h2>Vehicle Data (Fake)</h2>
 
-    <div class="top-section">
-        <label>Select Vehicle:</label>
-        <select id="vehicleSelect">
-            <option value="truck1">Vehicle 1</option>
-            <option value="truck2">Vehicle 2</option>
-        </select>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Distance</th>
+                <th>Fuel</th>
+            </tr>
+        </thead>
+        <tbody id="data-body">
+            <!-- Data will load here -->
+        </tbody>
+    </table>
 
-        <p id="todayDate"></p>
-    </div>
+    <script>
+        // Fake data object
+        const fakeData = {
+            "21-11-2025": { distance: "5 km", fuel: "1.1 L" },
+            "22-11-2025": { distance: "22 km", fuel: "4.5 L" }
+        };
 
-    <div class="cards">
-        <div class="card">
-            <h3>Distance</h3>
-            <p id="distance">--</p>
-        </div>
+        // Load data into table
+        const tableBody = document.getElementById("data-body");
 
-        <div class="card">
-            <h3>Fuel</h3>
-            <p id="fuel">--</p>
-        </div>
-    </div>
+        Object.keys(fakeData).forEach(date => {
+            const row = document.createElement("tr");
 
-    <script type="module" src="app.js"></script>
-    <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-</script>
+            row.innerHTML = `
+                <td>${date}</td>
+                <td>${fakeData[date].distance}</td>
+                <td>${fakeData[date].fuel}</td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+    </script>
 
 </body>
 </html>
