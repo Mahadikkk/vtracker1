@@ -1,55 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Vehicle Tracker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Vehicle Tracker Dashboard</h2>
+    <h2>Vehicle Dashboard</h2>
 
-<select id="vehicleSelect">
-    <option value="car1">Car 1</option>
-    <option value="car2">Car 2</option>
-    <option value="truck1">Truck 1</option>
-</select>
+    <div class="top-section">
+        <label>Select Vehicle:</label>
+        <select id="vehicleSelect">
+            <option value="vehicle1">Vehicle 1</option>
+            <option value="vehicle2">Vehicle 2</option>
+        </select>
 
-<div class="card">
-    <h3 id="todayDate"></h3>
-    <p><b>Distance:</b> <span id="distance"></span> miles</p>
-    <p><b>Fuel:</b> <span id="fuel"></span> gallons</p>
-    <p><b>Mileage:</b> <span id="mileage"></span> MPG</p>
-</div>
+        <p id="todayDate"></p>
+    </div>
 
-<h3>Past Records</h3>
-<div id="recordsList"></div>
+    <div class="cards">
+        <div class="card">
+            <h3>Distance</h3>
+            <p id="distance">--</p>
+        </div>
 
-<script type="module" src="app.js"></script>
-<!-- Firebase SDK (script tag method) -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+        <div class="card">
+            <h3>Fuel</h3>
+            <p id="fuel">--</p>
+        </div>
+    </div>
 
-<script>
-  // paste your firebaseConfig object here (from Firebase console)
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "vtracker1-e0278.firebaseapp.com",
-    databaseURL: "https://vtracker1-e0278-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "vtracker1-e0278",
-    storageBucket: "vtracker1-e0278.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-
-  // Initialize (namespaced API)
-  const app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-  // Expose db for app.js to use (if your app.js expects a global `db`):
-  window.db = db;
-</script>
-
-<!-- your script (no type="module") -->
-<script src="app.js"></script>
-
+    <script type="module" src="app.js"></script>
 </body>
 </html>
