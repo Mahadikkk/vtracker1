@@ -3,13 +3,13 @@ import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10
 
 // --- Your Firebase Config ---
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
+  apiKey: "AIzaSyAYpW13lyQTT5XpsTpXqLQMhBwuVQ2qi80",
   authDomain: "vtracker1-e0278.firebaseapp.com",
   databaseURL: "https://vtracker1-e0278-default-rtdb.asia-southeast1.firebasedatabase.app/",
   projectId: "vtracker1-e0278",
   storageBucket: "vtracker1-e0278.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  messagingSenderId: "866787627104",
+  appId: "1:866787627104:web:b300c387f62863232c3305"
 };
 
 // --- Initialize Firebase ---
