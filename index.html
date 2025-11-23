@@ -1,65 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Fake Vehicle Data</title>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 40px;
-        }
-        table {
-            border-collapse: collapse;
-            width: 400px;
-        }
-        th, td {
-            border: 1px solid #222;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background: #eee;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <h2>Vehicle Data (Fake)</h2>
+    <h2>Vehicle Dashboard</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Distance</th>
-                <th>Fuel</th>
-            </tr>
-        </thead>
-        <tbody id="data-body">
-            <!-- Data will load here -->
-        </tbody>
-    </table>
+    <div class="top-section">
+        <label>Select Vehicle:</label>
+        <select id="vehicleSelect">
+            <option value="vehicle1">Vehicle 1</option>
+            <option value="vehicle2">Vehicle 2</option>
+        </select>
+
+        <p id="todayDate"></p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Distance (km)</h3>
+            <p id="distance">--</p>
+        </div>
+
+        <div class="card">
+            <h3>Fuel (Liters)</h3>
+            <p id="fuel">--</p>
+        </div>
+    </div>
+
+    <!-- Load JS -->
+    <script type="module" src="app.js"></script>
 
     <script>
-        // Fake data object
-        const fakeData = {
-            "21-11-2025": { distance: "5 km", fuel: "1.1 L" },
-            "22-11-2025": { distance: "22 km", fuel: "4.5 L" }
-        };
-
-        // Load data into table
-        const tableBody = document.getElementById("data-body");
-
-        Object.keys(fakeData).forEach(date => {
-            const row = document.createElement("tr");
-
-            row.innerHTML = `
-                <td>${date}</td>
-                <td>${fakeData[date].distance}</td>
-                <td>${fakeData[date].fuel}</td>
-            `;
-
-            tableBody.appendChild(row);
-        });
+        // Show today's date
+        document.getElementById("todayDate").innerText =
+            new Date().toLocaleDateString("en-IN");
     </script>
 
 </body>
