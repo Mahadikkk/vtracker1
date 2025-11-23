@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Vehicle Tracker Dashboard</h2>
+
+<select id="vehicleSelect">
+    <option value="car1">Car 1</option>
+    <option value="car2">Car 2</option>
+    <option value="truck1">Truck 1</option>
+</select>
+
+<div class="card">
+    <h3 id="todayDate"></h3>
+    <p><b>Distance:</b> <span id="distance"></span> miles</p>
+    <p><b>Fuel:</b> <span id="fuel"></span> gallons</p>
+    <p><b>Mileage:</b> <span id="mileage"></span> MPG</p>
+</div>
+
+<h3>Past Records</h3>
+<div id="recordsList"></div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
