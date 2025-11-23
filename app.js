@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-// --- Your Firebase Config ---
+// --- Firebase Config ---
 const firebaseConfig = {
   apiKey: "AIzaSyAYpW13lyQTT5XpsTpXqLQMhBwuVQ2qi80",
   authDomain: "vtracker1-e0278.firebaseapp.com",
@@ -12,27 +12,30 @@ const firebaseConfig = {
   appId: "1:866787627104:web:b300c387f62863232c3305"
 };
 
-// --- Initialize Firebase ---
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// --- Today date ---
-const today = new Date().toISOString().split("T")[0];
+// Show today date
+const today = new Date().toLocaleDateString("en-IN");
 document.getElementById("todayDate").textContent = "Today: " + today;
 
-// --- Load selected vehicle ---
+// Dropdown
 const vehicleSelect = document.getElementById("vehicleSelect");
 
+// Load default vehicle
+loadVehicleData("vehicle1");
+
+// Change listener
 vehicleSelect.addEventListener("change", () => {
     loadVehicleData(vehicleSelect.value);
 });
 
-loadVehicleData("vehicle1"); // default
-
-// --- Load data from Firebase ---
+// --- Load Data Function ---
 function loadVehicleData(vehicleId) {
 
-    const dataRef = ref(db, `vehicles/${vehicleId}/${today}`);
+    // Correct Firebase Path
+    const dataRef = ref(db, `${vehicleId}`);
 
     onValue(dataRef, snapshot => {
         const data = snapshot.val();
